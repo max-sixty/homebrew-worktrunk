@@ -22,10 +22,10 @@ class Wt < Formula
     (fish_completion/"wt.fish").write fish_comp
 
     # Generate and install shell integration scripts
-    (share/"wt").mkpath
-    (share/"wt/wt.bash").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "bash")
-    (share/"wt/wt.zsh").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "zsh")
-    (share/"wt/wt.fish").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "fish")
+    pkgshare.mkpath
+    (pkgshare/"wt.bash").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "bash")
+    (pkgshare/"wt.zsh").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "zsh")
+    (pkgshare/"wt.fish").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "fish")
   end
 
   def caveats
