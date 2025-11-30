@@ -36,8 +36,9 @@ class Wt < Formula
       system "git", "config", "user.email", "test@test.com"
       system "git", "config", "user.name", "Test"
       system "git", "commit", "--allow-empty", "-m", "init"
-      # wt list should show the main worktree
-      assert_match "main", shell_output("#{bin}/wt list")
+      # wt list outputs to stderr in interactive mode, verify via JSON
+      output = shell_output("#{bin}/wt list --format=json")
+      assert_match "worktrees", output
     end
   end
 end
