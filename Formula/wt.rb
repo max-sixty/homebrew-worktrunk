@@ -13,31 +13,13 @@ class Wt < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-
-    # Generate shell completions using clap_complete's COMPLETE env var
-    generate_completions_from_executable(bin/"wt", shell_parameter_format: :clap)
-
-    # Generate and install shell integration scripts (wrapper function for cd after switch)
-    pkgshare.mkpath
-    (pkgshare/"wt.bash").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "bash")
-    (pkgshare/"wt.zsh").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "zsh")
-    (pkgshare/"wt.fish").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "fish")
   end
 
   def caveats
     <<~EOS
-      Shell completions have been installed for bash, zsh, and fish.
-
-      For full shell integration (directory switching after `wt switch`),
-      run:
+      To enable shell integration (directory switching, completions), run:
 
         wt config shell install
-
-      Or manually add to your shell config:
-
-        Bash: eval "$(wt config shell init bash)"
-        Zsh:  eval "$(wt config shell init zsh)"
-        Fish: wt config shell init fish | source
     EOS
   end
 
