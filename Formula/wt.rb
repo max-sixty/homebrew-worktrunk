@@ -23,9 +23,9 @@ class Wt < Formula
 
     # Generate and install shell integration scripts
     (share/"wt").mkpath
-    (share/"wt/wt.bash").write shell_output("#{bin}/wt config shell init bash")
-    (share/"wt/wt.zsh").write shell_output("#{bin}/wt config shell init zsh")
-    (share/"wt/wt.fish").write shell_output("#{bin}/wt config shell init fish")
+    (share/"wt/wt.bash").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "bash")
+    (share/"wt/wt.zsh").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "zsh")
+    (share/"wt/wt.fish").write Utils.safe_popen_read(bin/"wt", "config", "shell", "init", "fish")
   end
 
   def caveats
