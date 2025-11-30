@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 class Wt < Formula
-  desc "Git worktree manager for trunk-based development"
+  desc "CLI for Git worktree management, designed for parallel AI agent workflows"
   homepage "https://github.com/max-sixty/worktrunk"
   url "https://github.com/max-sixty/worktrunk/archive/refs/tags/v0.1.10.tar.gz"
   sha256 "5545d62a6ec7d13fc810675601ded68ca1d7ddc5d710a1886f71133922d2d8d9"
