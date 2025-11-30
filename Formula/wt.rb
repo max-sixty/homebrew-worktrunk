@@ -28,7 +28,7 @@ class Wt < Formula
   end
 
   test do
-    assert_match "wt v#{version}", shell_output("#{bin}/wt --version")
+    assert_match "wt #{version}", shell_output("#{bin}/wt --version")
 
     # Test basic functionality in a git repo
     system "git", "init", "test-repo"
