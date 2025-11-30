@@ -13,17 +13,33 @@ class Wt < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    # Install fish completion - uses COMPLETE env var for dynamic completions
+    fish_comp = <<~FISH
+      # worktrunk completions for fish
+      complete --keep-order --exclusive --command wt --arguments "(set -q WORKTRUNK_BIN; or set -l WORKTRUNK_BIN (type -P wt); COMPLETE=fish \\$WORKTRUNK_BIN -- (commandline --current-process --tokenize --cut-at-cursor) (commandline --current-token))"
+    FISH
+    (fish_completion/"wt.fish").write fish_comp
+
+    # Generate and install shell integration scripts
+    (share/"wt").mkpath
+    (share/"wt/wt.bash").write shell_output("#{bin}/wt config shell init bash")
+    (share/"wt/wt.zsh").write shell_output("#{bin}/wt config shell init zsh")
+    (share/"wt/wt.fish").write shell_output("#{bin}/wt config shell init fish")
   end
 
   def caveats
     <<~EOS
-      To enable shell integration (directory switching, completions), run:
-        wt configure-shell
+      Fish completions have been installed.
 
-      Or manually add to your shell config:
-        Bash: eval "$(wt init bash)"
-        Zsh:  eval "$(wt init zsh)"
-        Fish: wt init fish | source
+      For full shell integration (directory switching after `wt switch`),
+      add to your shell config:
+
+        Bash: echo 'eval "$(wt config shell init bash)"' >> ~/.bashrc
+        Zsh:  echo 'eval "$(wt config shell init zsh)"' >> ~/.zshrc
+        Fish: echo 'wt config shell init fish | source' >> ~/.config/fish/config.fish
+
+      Or run: wt configure-shell
     EOS
   end
 
