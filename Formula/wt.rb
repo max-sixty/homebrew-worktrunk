@@ -29,13 +29,15 @@ class Wt < Formula
       Shell completions have been installed for bash, zsh, and fish.
 
       For full shell integration (directory switching after `wt switch`),
-      add to your shell config:
+      run:
+
+        wt config shell install
+
+      Or manually add to your shell config:
 
         Bash: eval "$(wt config shell init bash)"
         Zsh:  eval "$(wt config shell init zsh)"
         Fish: wt config shell init fish | source
-
-      Or run: wt configure-shell
     EOS
   end
 
