@@ -38,7 +38,7 @@ class Wt < Formula
       system "git", "commit", "--allow-empty", "-m", "init"
       # wt list outputs to stderr in interactive mode, verify via JSON
       output = shell_output("#{bin}/wt list --format=json")
-      assert_match "worktrees", output
+      assert_match '"branch":', output
     end
   end
 end
