@@ -20,7 +20,7 @@ brew install max-sixty/worktrunk/wt
 Enable shell integration for directory switching and completions:
 
 ```sh
-wt configure-shell
+wt config shell install
 ```
 
 ## Updating
