@@ -4,17 +4,17 @@
 class Wt < Formula
   desc "CLI for Git worktree management, designed for parallel AI agent workflows"
   homepage "https://github.com/max-sixty/worktrunk"
-  version "0.1.11"
+  version "0.1.12"
   license any_of: ["Apache-2.0", "MIT"]
 
   on_macos do
     on_arm do
-      url "https://github.com/max-sixty/worktrunk/releases/download/v0.1.11/worktrunk-aarch64-apple-darwin.tar.xz"
-      sha256 "66ee656bba366a19b412e60671b5b60d59beb8412f526491fa0d9fc5319eb05d"
+      url "https://github.com/max-sixty/worktrunk/releases/download/v0.1.12/worktrunk-aarch64-apple-darwin.tar.xz"
+      sha256 "8a46a28cbd43bd8085e834fd6a00ce10f773f9a403e4641f78e942e71c08d4c5"
     end
     on_intel do
-      url "https://github.com/max-sixty/worktrunk/releases/download/v0.1.11/worktrunk-x86_64-apple-darwin.tar.xz"
-      sha256 "f7a4df37661584b0e5451cac3947d06434e5fcc2bb5abe7e8739c8d1f75f0dc6"
+      url "https://github.com/max-sixty/worktrunk/releases/download/v0.1.12/worktrunk-x86_64-apple-darwin.tar.xz"
+      sha256 "bdc2df81754791fb908dcf410094e04b4e6a603d99c30bf97308fcbad0866f33"
     end
   end
 
