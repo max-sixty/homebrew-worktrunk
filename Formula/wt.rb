@@ -7,6 +7,11 @@ class Wt < Formula
   version "0.1.12"
   license any_of: ["Apache-2.0", "MIT"]
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   on_macos do
     on_arm do
       url "https://github.com/max-sixty/worktrunk/releases/download/v0.1.12/worktrunk-aarch64-apple-darwin.tar.xz"
@@ -18,9 +23,11 @@ class Wt < Formula
     end
   end
 
-  livecheck do
-    url :stable
-    strategy :github_latest
+  on_linux do
+    on_intel do
+      url "https://github.com/max-sixty/worktrunk/releases/download/v0.1.12/worktrunk-x86_64-unknown-linux-musl.tar.xz"
+      sha256 "c0fdc2d9dea6917e7c2195efb2e62f7368d29f4c61445a5e80a39715cb724468"
+    end
   end
 
   def install
