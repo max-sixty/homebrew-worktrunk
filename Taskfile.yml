@@ -1,0 +1,40 @@
+version: "3"
+
+vars:
+  FORMULA: Formula/wt.rb
+  REPO: max-sixty/worktrunk
+
+tasks:
+  bump:
+    desc: Update formula to a new version
+    requires:
+      vars: [VERSION]
+    vars:
+      ARM_SHA:
+        sh: curl -sL "https://github.com/{{.REPO}}/releases/download/v{{.VERSION}}/worktrunk-aarch64-apple-darwin.tar.xz.sha256" | cut -d' ' -f1 | tr -d '\n'
+      X86_SHA:
+        sh: curl -sL "https://github.com/{{.REPO}}/releases/download/v{{.VERSION}}/worktrunk-x86_64-apple-darwin.tar.xz.sha256" | cut -d' ' -f1 | tr -d '\n'
+    cmds:
+      - cmd: |
+          if [ -z "{{.ARM_SHA}}" ] || [ -z "{{.X86_SHA}}" ]; then
+            echo "Failed to fetch checksums for v{{.VERSION}}"
+            exit 1
+          fi
+      - sed -i '' 's/version ".*"/version "{{.VERSION}}"/' {{.FORMULA}}
+      - sed -i '' 's|download/v[^/]*/worktrunk-aarch64|download/v{{.VERSION}}/worktrunk-aarch64|' {{.FORMULA}}
+      - sed -i '' 's|download/v[^/]*/worktrunk-x86_64|download/v{{.VERSION}}/worktrunk-x86_64|' {{.FORMULA}}
+      - sed -i '' '/aarch64-apple-darwin/,/sha256/{s/sha256 "[^"]*"/sha256 "{{.ARM_SHA}}"/;}' {{.FORMULA}}
+      - sed -i '' '/x86_64-apple-darwin/,/sha256/{s/sha256 "[^"]*"/sha256 "{{.X86_SHA}}"/;}' {{.FORMULA}}
+      - 'echo "Updated to v{{.VERSION}}"'
+      - 'echo "  arm64:  {{.ARM_SHA}}"'
+      - 'echo "  x86_64: {{.X86_SHA}}"'
+
+  test:
+    desc: Run brew test on the formula
+    cmds:
+      - brew test max-sixty/worktrunk/wt
+
+  audit:
+    desc: Run brew audit on the formula
+    cmds:
+      - brew audit --strict max-sixty/worktrunk/wt
