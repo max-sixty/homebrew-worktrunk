@@ -4,7 +4,7 @@
 class Wt < Formula
   desc "CLI for Git worktree management, designed for parallel AI agent workflows"
   homepage "https://github.com/max-sixty/worktrunk"
-  version "0.8.0"
+  version "0.8.1"
   license any_of: ["Apache-2.0", "MIT"]
 
   livecheck do
@@ -14,19 +14,19 @@ class Wt < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/max-sixty/worktrunk/releases/download/v0.8.0/worktrunk-aarch64-apple-darwin.tar.xz"
-      sha256 "2e6f724a9fcceb2b014127a39260e72b8fc9052863816be6435f0a57d0cc2af3"
+      url "https://github.com/max-sixty/worktrunk/releases/download/v0.8.1/worktrunk-aarch64-apple-darwin.tar.xz"
+      sha256 "adf4a34ac32deeeff35072715b2c57bf8f23b28fc0fe1e15f2486241aaf7db99"
     end
     on_intel do
-      url "https://github.com/max-sixty/worktrunk/releases/download/v0.8.0/worktrunk-x86_64-apple-darwin.tar.xz"
-      sha256 "7f65c1f726d99c4b77a871143578ba5b02f927769f830d8270b206c97a5841f9"
+      url "https://github.com/max-sixty/worktrunk/releases/download/v0.8.1/worktrunk-x86_64-apple-darwin.tar.xz"
+      sha256 "6ed0278672f3087546c176e822a758acd353c446b655ccaed9323f14de46097c"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/max-sixty/worktrunk/releases/download/v0.8.0/worktrunk-x86_64-unknown-linux-musl.tar.xz"
-      sha256 "8f1ee6a2f61ec03852737322523c8e314c6fe728dd1ca11efe2f0c313973caf1"
+      url "https://github.com/max-sixty/worktrunk/releases/download/v0.8.1/worktrunk-x86_64-unknown-linux-musl.tar.xz"
+      sha256 "87dc090d52d66beb0ecbf29e47d2ba135ec6ca961cd110e8aa172e31251de7cc"
     end
   end
 
