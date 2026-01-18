@@ -1,8 +1,25 @@
 # Homebrew Tap for Worktrunk
 
+> [!IMPORTANT]
+> **Worktrunk is now in homebrew-core!** You can install directly with:
+>
+> ```sh
+> brew install worktrunk
+> ```
+>
+> If you previously installed from this tap, migrate with:
+>
+> ```sh
+> brew uninstall wt
+> brew untap max-sixty/worktrunk
+> brew install worktrunk
+> ```
+
+---
+
 Homebrew formulae for [Worktrunk](https://github.com/max-sixty/worktrunk) (`wt`), a Git worktree manager for trunk-based development.
 
-## Installation
+## Installation (Legacy)
 
 ```sh
 brew tap max-sixty/worktrunk
