@@ -1,25 +1,25 @@
 class Wt < Formula
   desc "A CLI for Git worktree management, designed for parallel AI agent workflows"
   homepage "https://worktrunk.dev"
-  version "0.53.0"
+  version "0.54.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/max-sixty/worktrunk/releases/download/v0.53.0/worktrunk-aarch64-apple-darwin.tar.xz"
-      sha256 "a105d9f4297551c6d70cbfad96d32ae84220d1505b84769528e0703c3f6ea4e0"
+      url "https://github.com/max-sixty/worktrunk/releases/download/v0.54.0/worktrunk-aarch64-apple-darwin.tar.xz"
+      sha256 "ea631e9b3791724d4a7c2490f66d9e50a96f49985bca4624dfca69194fd9c1e3"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/max-sixty/worktrunk/releases/download/v0.53.0/worktrunk-x86_64-apple-darwin.tar.xz"
-      sha256 "3ea42892fd350e7f935d07dab7a80a97d616f02e86c6a89c4b8bfe8460642ae6"
+      url "https://github.com/max-sixty/worktrunk/releases/download/v0.54.0/worktrunk-x86_64-apple-darwin.tar.xz"
+      sha256 "00b971d99dea2635c985f4f8fb360a8233936e1afc17f4e8d2cb6dddf874452c"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/max-sixty/worktrunk/releases/download/v0.53.0/worktrunk-aarch64-unknown-linux-musl.tar.xz"
-      sha256 "6e19592af9b849d92dce981b43827a197daf98a1d4b4c1a65f018b0307caa481"
+      url "https://github.com/max-sixty/worktrunk/releases/download/v0.54.0/worktrunk-aarch64-unknown-linux-musl.tar.xz"
+      sha256 "4661270c60d3efad87ecfb38fa47fd868ec939a7ec252646321e8db8e8ba792c"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/max-sixty/worktrunk/releases/download/v0.53.0/worktrunk-x86_64-unknown-linux-musl.tar.xz"
-      sha256 "2d0e810910270955fbf9a7c2d5c61c754eb4fea0c255a960d0acccff65646822"
+      url "https://github.com/max-sixty/worktrunk/releases/download/v0.54.0/worktrunk-x86_64-unknown-linux-musl.tar.xz"
+      sha256 "572a9261651c3b43e713b3b722ec676a149f07e06c13565cb32f0c9cdfc5a199"
     end
   end
   license any_of: ["MIT", "Apache-2.0"]
